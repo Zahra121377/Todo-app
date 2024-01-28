@@ -1,6 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
 from .forms import TaskForm
 from .models import Task
@@ -19,3 +19,8 @@ class TaskCreateView(CreateView):
             self.object.title
         )
         return HttpResponse(success_message)
+
+
+class TaskListView(ListView):
+    model = Task
+    template_name = "tasks/task_list.html"
