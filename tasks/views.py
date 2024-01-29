@@ -1,5 +1,4 @@
 # Create your views here.
-from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
@@ -29,7 +28,3 @@ class TaskUpdateView(UpdateView):
 class TaskDeleteView(DeleteView):
     model = Task
     success_url = reverse_lazy("task_list")
-
-    def delete(self, request, *args, **kwargs):
-        messages.success(self.request, "The task was deleted successfully.")
-        return super().delete(request, *args, **kwargs)
