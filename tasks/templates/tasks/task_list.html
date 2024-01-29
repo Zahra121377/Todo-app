@@ -10,6 +10,10 @@
                     Uncompleted
                 {% endif %}
             </a>
+            <div class="task-controls">
+                <a href="{% url 'task_edit' pk=task.pk %}">Edit</a>
+                <a href="{% url 'task_delete' pk=task.pk %}">Delete</a>
+            </div>
         </li>
     {% endfor %}
 </ul>
